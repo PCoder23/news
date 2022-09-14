@@ -7,11 +7,13 @@ public class NewsData implements Serializable {
     String source;
     String title;
     String date;
-    NewsData(String imageUrl,String source,String title,String date){
+    String url;
+    NewsData(String imageUrl,String source,String title,String date,String url){
         this.imageUrl=imageUrl;
         this.source=source;
         this.title=title;
         this.date=date;
+        this.url=url;
     }
 
     public String getImageUrl() {
@@ -44,5 +46,13 @@ public class NewsData implements Serializable {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

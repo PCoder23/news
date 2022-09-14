@@ -56,7 +56,7 @@ public class NewsTitleRecycler extends AppCompatActivity {
                                 break;
                             }
 
-                            data.add(new NewsData(item.getString("urlToImage").toString(),source.getString("name"),item.getString("title"),date ));
+                            data.add(new NewsData(item.getString("urlToImage").toString(),source.getString("name"),item.getString("title"),date,item.getString("url") ));
 
                         }
                         adapter.notifyDataSetChanged();

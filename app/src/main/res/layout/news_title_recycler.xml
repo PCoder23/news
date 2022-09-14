@@ -4,14 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewsTitleRecycler">
+    tools:context=".NewsTitleRecycler"
+    android:background="@color/news_title_recycler_background"
+    >
+
+    <com.google.android.material.textview.MaterialTextView
+        android:fontFamily="@font/petrona"
+        android:id="@+id/headline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Top HeadLines Today"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/news_card"
+        android:layout_marginTop="10dp"
         tools:itemCount="2"
         />
 

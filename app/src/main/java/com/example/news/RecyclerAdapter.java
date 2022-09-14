@@ -1,6 +1,8 @@
 package com.example.news;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +38,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     holder.date.setText(CurData.getDate());
     holder.source.setText(CurData.getSource());
     Picasso.get().load(CurData.getImageUrl()).into(holder.img);
+    holder.readMore.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            holder.readMore.setTextColor(Color.parseColor("#FFFFFFFF"));
+            Intent intent =new Intent(context,DetailedNews.class);
+            intent.putExtra("url",CurData.getUrl());
+            context.startActivity(intent);
+        }
+    });
     }
 
     @Override
@@ -48,12 +59,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         TextView source;
         TextView title;
         TextView date;
+        TextView readMore;
         public RecyclerViewHolder(@NonNull View view) {
             super(view);
             this.img= view.findViewById(R.id.imgView);
             this.source=view.findViewById(R.id.source);
             this.date=view.findViewById(R.id.date);
             this.title=view.findViewById(R.id.title1);
+            this.readMore=view.findViewById(R.id.readMore);
+
         }
     }
 }
